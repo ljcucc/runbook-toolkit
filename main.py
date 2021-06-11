@@ -1,4 +1,5 @@
 import tools.macos as macos # import(using) macos support
+import tools.toolkit as toolkit
 
 brew_package = [  # Package install
     "git",
@@ -13,5 +14,7 @@ cask_install = [  # Cask package install
 ]
 
 # Run config variable
-macos.brew_install(brew_package)
-macos.brew_cask_install(cask_install)
+@toolkit.setup
+def setup():
+	macos.brew_install(brew_package)
+	macos.brew_cask_install(cask_install)
